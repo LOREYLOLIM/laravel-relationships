@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="text-center my-3">Eloquent Relationship</h2>
+            <h2 class="text-center my-3">One To One Relationship</h2>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -28,6 +28,33 @@
                     <td>{{$data->name}}</td>
                     <td>{{$data->phone->name}}</td>
                 </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center my-3">One To Many Relationship</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Comment</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($posts as $data)
+                    <tr>
+                        <td>{{$data->title}}</td>
+                        <td>
+                            @foreach($data->comments as $comment)
+                                {{$comment->message}}<br>
+                            @endforeach
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

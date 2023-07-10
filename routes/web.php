@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Comment;
 use App\Models\Phone;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +25,12 @@ Route::get('/', function () {
     $user = Phone::find(1)->user;
 //    return $user;
     $users = User::all();
-    return view('welcome', compact('users'));
+    $comments = Post::find(2)->comments;
+//    dd($comments);
+    $post = Comment::find(5)->post;
+//    dd($post);
+    $posts = Post::with('comments')->get();
+//    dd($posts);
+
+    return view('welcome', compact('users', 'posts'));
 });
