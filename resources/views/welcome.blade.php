@@ -138,6 +138,31 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center my-3">hasOne Through Relationship</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Mechanic</th>
+                    <th>Car model</th>
+                    <th>Car Owner</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($mechanics as $data)
+                    <tr>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->car->model}}</td>
+                        <td>{{$data->carOwner->name}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

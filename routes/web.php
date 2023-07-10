@@ -2,6 +2,7 @@
 
 use App\Models\Comment;
 use App\Models\Country;
+use App\Models\Mechanic;
 use App\Models\Phone;
 use App\Models\Post;
 use App\Models\User;
@@ -40,6 +41,8 @@ Route::get('/', function () {
 //    dd($categories);
     $countries  = Country::with('posts')->get();
 //    dd($countries);
+    $mechanics = Mechanic::with('carOwner')->get();
+//    dd($mechanics);
 
-    return view('welcome', compact('users', 'phone', 'posts', 'postcategory', 'categories', 'countries'));
+    return view('welcome', compact('users', 'phone', 'posts', 'postcategory', 'categories', 'countries', 'mechanics'));
 });
