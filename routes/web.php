@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Comment;
+use App\Models\Country;
 use App\Models\Phone;
 use App\Models\Post;
 use App\Models\User;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $phone = User::find(1);
-    $phone = User::find(1)->phone;
+    $phone = User::with('phone')->get();
 //    return $phone;
 //    $user = Phone::find(1);
     $user = Phone::find(1)->user;
@@ -37,6 +38,8 @@ Route::get('/', function () {
 //    dd($postcategory);
     $categories = Category::with('posts')->get();
 //    dd($categories);
+    $countries  = Country::with('posts')->get();
+//    dd($countries);
 
-    return view('welcome', compact('users', 'posts', 'postcategory', 'categories'));
+    return view('welcome', compact('users', 'phone', 'posts', 'postcategory', 'categories', 'countries'));
 });

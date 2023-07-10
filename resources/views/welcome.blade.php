@@ -23,10 +23,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $data)
+                @foreach($phone as $data)
                 <tr>
                     <td>{{$data->name}}</td>
-                    <td>{{$data->phone->name}}</td>
+                    <td>{{$data->phone?->name}}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -108,6 +108,29 @@
                                 {{$post->title}}<br>
                             @endforeach
                         </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center my-3">hasMany Through Relationship</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Total Post</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($countries as $data)
+                    <tr>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->posts->count()}}</td>
                     </tr>
                 @endforeach
                 </tbody>
