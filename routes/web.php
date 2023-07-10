@@ -4,6 +4,8 @@ use App\Models\Comment;
 use App\Models\Phone;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\CategoryPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +33,10 @@ Route::get('/', function () {
 //    dd($post);
     $posts = Post::with('comments')->get();
 //    dd($posts);
+    $postcategory = Post::with('categories')->get();
+//    dd($postcategory);
+    $categories = Category::with('posts')->get();
+//    dd($categories);
 
-    return view('welcome', compact('users', 'posts'));
+    return view('welcome', compact('users', 'posts', 'postcategory', 'categories'));
 });

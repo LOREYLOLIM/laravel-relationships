@@ -61,6 +61,60 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center my-3">Many To Many Relationship</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Post Title</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($posts as $data)
+                    <tr>
+                        <td>{{$data->title}}</td>
+                        <td>
+                            @foreach($data->categories as $category)
+                                {{$category->name}}<br>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center my-3">Many To Many Relationship</h2>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Post Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($categories as $data)
+                    <tr>
+                        <td>{{$data->name}}</td>
+                        <td>
+                            @foreach($data->posts as $post)
+                                {{$post->title}}<br>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
